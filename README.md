@@ -92,7 +92,7 @@ package.json                     # Monorepo root scripts + dependencies
 
 ```bash
 # Clone the repository
-git clone https://github.com/Subash-S-66/Subash-Portfolio.git
+git clone https://github.com/Subash-S-66/Subash-S-Portfolio-Game-Theme.git
 cd Subash-Portfolio
 
 # Install dependencies
