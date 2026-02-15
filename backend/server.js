@@ -223,168 +223,256 @@ app.post('/api/contact',
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>New Contact Form Submission</title>
-          <style>
-            body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc; }
-            .container { max-width: 700px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
-            .header { background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%); padding: 30px; text-align: center; color: white; }
-            .header h2 { margin: 0; font-size: 24px; font-weight: 600; }
-            .header p { margin: 8px 0 0 0; font-size: 14px; opacity: 0.9; }
-            .content { padding: 30px; }
-            .contact-info { background-color: #f8fafc; border-left: 4px solid #0ea5e9; padding: 20px; margin: 20px 0; border-radius: 8px; }
-            .contact-info h3 { margin: 0 0 15px 0; color: #1a202c; font-size: 18px; }
-            .contact-info p { margin: 8px 0; color: #4a5568; font-size: 14px; }
-            .contact-info strong { color: #2d3748; }
-            .message-section { background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; margin: 20px 0; }
-            .message-section h3 { margin: 0 0 15px 0; color: #334155; font-size: 16px; }
-            .message-text { color: #475569; line-height: 1.6; white-space: pre-wrap; word-wrap: break-word; }
-            .timestamp { background-color: #f0f9ff; border: 1px solid #90cdf4; border-radius: 8px; padding: 15px; margin: 20px 0; }
-            .timestamp p { margin: 0; color: #0369a1; font-size: 13px; text-align: center; }
-            .footer { background-color: #2d3748; color: #a0aec0; padding: 20px; text-align: center; font-size: 12px; }
-          </style>
+          <title>New Contact — Portfolio</title>
         </head>
-        <body>
-          <div class="container">
-            <div class="header">
-              <h2>New Contact Form Submission</h2>
-              <p>You have received a new message from your portfolio website</p>
-            </div>
-            <div class="content">
-              <div class="contact-info">
-                <h3>Contact Information</h3>
-                <p><strong>Name:</strong> ${name}</p>
-                <p><strong>Email:</strong> <a href="mailto:${email}" style="color: #0ea5e9; text-decoration: none;">${email}</a></p>
-                <p><strong>Subject:</strong> ${subject}</p>
-              </div>
-              <div class="message-section">
-                <h3>Message</h3>
-                <div class="message-text">${message.replace(/\n/g, '<br>')}</div>
-              </div>
-              <div class="timestamp">
-                <p><strong>Received:</strong> ${new Date().toLocaleString('en-US', {
-                  weekday: 'long',
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                  hour: '2-digit',
-                  minute: '2-digit',
-                  second: '2-digit',
-                  timeZoneName: 'short'
-                })}</p>
-              </div>
-            </div>
-            <div class="footer">
-              <p>This notification was sent from your portfolio contact form.</p>
-            </div>
-          </div>
+        <body style="margin:0;padding:0;background-color:#08080f;font-family:'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:#c8ccd4;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#08080f;">
+            <tr><td align="center" style="padding:40px 16px;">
+              <table role="presentation" width="640" cellpadding="0" cellspacing="0" style="max-width:640px;width:100%;background-color:#0f0f18;border:1px solid #1a1a2e;border-radius:16px;overflow:hidden;box-shadow:0 0 80px rgba(255,45,85,0.06);">
+
+                <!-- HEADER -->
+                <tr>
+                  <td style="background:linear-gradient(135deg,#1a0a0a 0%,#1a0015 50%,#0a0a1a 100%);padding:40px;text-align:center;border-bottom:1px solid #2a1525;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 auto 16px;">
+                      <tr>
+                        <td style="width:10px;height:10px;background-color:#ff2d55;border-radius:50%;box-shadow:0 0 12px #ff2d55,0 0 24px rgba(255,45,85,0.4);"></td>
+                        <td style="padding-left:10px;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#ff2d55;font-weight:600;">INCOMING SIGNAL</td>
+                      </tr>
+                    </table>
+                    <h1 style="margin:0;font-size:26px;font-weight:700;color:#ffffff;letter-spacing:-0.3px;">New Contact Submission</h1>
+                    <p style="margin:10px 0 0;font-size:14px;color:#6a5a6e;">A new message arrived from your portfolio.</p>
+                  </td>
+                </tr>
+
+                <!-- BODY -->
+                <tr>
+                  <td style="padding:36px 40px;">
+
+                    <!-- Sender Info Card -->
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#13132a;border:1px solid #1e1e3a;border-radius:12px;margin-bottom:24px;">
+                      <tr>
+                        <td style="padding:24px;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:16px;">
+                            <tr>
+                              <td style="width:4px;background:linear-gradient(180deg,#00d4ff,#0088cc);border-radius:2px;"></td>
+                              <td style="padding-left:14px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#00d4ff;font-weight:600;">SENDER PROFILE</td>
+                            </tr>
+                          </table>
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td style="padding:8px 0;color:#555a6e;font-size:12px;width:80px;vertical-align:top;letter-spacing:1px;">NAME</td>
+                              <td style="padding:8px 0;color:#ffffff;font-size:15px;font-weight:600;">${name}</td>
+                            </tr>
+                            <tr>
+                              <td style="padding:8px 0;color:#555a6e;font-size:12px;vertical-align:top;letter-spacing:1px;">EMAIL</td>
+                              <td style="padding:8px 0;"><a href="mailto:${email}" style="color:#00d4ff;text-decoration:none;font-size:15px;font-weight:500;">${email}</a></td>
+                            </tr>
+                            <tr>
+                              <td style="padding:8px 0;color:#555a6e;font-size:12px;vertical-align:top;letter-spacing:1px;">SUBJECT</td>
+                              <td style="padding:8px 0;color:#e0e0e8;font-size:15px;">${subject}</td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+
+                    <!-- Message Card -->
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#13132a;border:1px solid #1e1e3a;border-radius:12px;margin-bottom:24px;">
+                      <tr>
+                        <td style="padding:24px;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:16px;">
+                            <tr>
+                              <td style="width:4px;background:linear-gradient(180deg,#00ffa3,#00cc82);border-radius:2px;"></td>
+                              <td style="padding-left:14px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#00ffa3;font-weight:600;">MESSAGE CONTENT</td>
+                            </tr>
+                          </table>
+                          <div style="color:#b0b4c0;font-size:14px;line-height:1.8;white-space:pre-wrap;word-wrap:break-word;border-left:2px solid #2a2a4a;padding-left:16px;">${message.replace(/\n/g, '<br>')}</div>
+                        </td>
+                      </tr>
+                    </table>
+
+                    <!-- Timestamp -->
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:linear-gradient(135deg,#0a1628,#0d1f3c);border:1px solid #1a3a5c;border-radius:12px;">
+                      <tr>
+                        <td style="padding:20px;text-align:center;">
+                          <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#3a7abf;font-weight:600;">RECEIVED</span>
+                          <div style="font-size:14px;color:#7aaed4;margin-top:6px;">${new Date().toLocaleString('en-US', {
+                            weekday: 'long',
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric',
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            second: '2-digit',
+                            timeZoneName: 'short'
+                          })}</div>
+                        </td>
+                      </tr>
+                    </table>
+
+                    <!-- Quick Reply -->
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:24px;">
+                      <tr>
+                        <td align="center">
+                          <a href="mailto:${email}?subject=Re: ${encodeURIComponent(subject)}" style="display:inline-block;padding:14px 32px;background:linear-gradient(135deg,#00d4ff,#0088cc);color:#000000;text-decoration:none;border-radius:10px;font-size:14px;font-weight:700;letter-spacing:0.5px;">Reply to ${name}</a>
+                        </td>
+                      </tr>
+                    </table>
+
+                  </td>
+                </tr>
+
+                <!-- FOOTER -->
+                <tr>
+                  <td style="background-color:#0a0a14;border-top:1px solid #1a1a2e;padding:24px 40px;text-align:center;">
+                    <div style="font-size:12px;color:#3a3a5e;">Portfolio contact notification &bull; <a href="https://subash.zeabur.app" style="color:#555a6e;text-decoration:none;">subash.zeabur.app</a></div>
+                  </td>
+                </tr>
+
+              </table>
+            </td></tr>
+          </table>
         </body>
         </html>
       `
 
-      // Simple auto-reply HTML for sender confirmation
-      // Auto-reply HTML (professional, branded template)
+      // Auto-reply HTML (dark gaming-themed template)
       const autoReplyHtml = `
         <!DOCTYPE html>
         <html lang="en">
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Thank you for contacting Subash</title>
-          <style>
-            body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc; }
-            .container { max-width: 600px; margin: 0 auto; background-color: #ffffff; }
-            .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px 30px; text-align: center; color: white; }
-            .header h1 { margin: 0; font-size: 28px; font-weight: 600; }
-            .header p { margin: 10px 0 0 0; font-size: 16px; opacity: 0.9; }
-            .content { padding: 40px 30px; }
-            .message-summary { background-color: #f8fafc; border-left: 4px solid #667eea; padding: 20px; margin: 20px 0; border-radius: 4px; }
-            .message-summary h3 { margin: 0 0 10px 0; color: #1a202c; font-size: 18px; }
-            .message-summary p { margin: 5px 0; color: #4a5568; }
-            .message-content { background-color: #f7fafc; padding: 20px; border-radius: 8px; margin: 20px 0; border: 1px solid #e2e8f0; }
-            .message-content h4 { margin: 0 0 15px 0; color: #2d3748; font-size: 16px; }
-            .message-text { color: #4a5568; line-height: 1.6; white-space: pre-line; }
-            .response-info { background-color: #ebf8ff; border: 1px solid #90cdf4; border-radius: 8px; padding: 20px; margin: 20px 0; }
-            .response-info h4 { margin: 0 0 10px 0; color: #2b6cb0; font-size: 16px; }
-            .response-info p { margin: 0; color: #2c5282; line-height: 1.5; }
-            .contact-options { background-color: #f0fff4; border: 1px solid #9ae6b4; border-radius: 8px; padding: 20px; margin: 20px 0; }
-            .contact-options h4 { margin: 0 0 15px 0; color: #22543d; font-size: 16px; }
-            .contact-links { margin: 15px 0; }
-            .contact-links a { display: inline-block; margin: 5px 10px 5px 0; padding: 8px 16px; background-color: #667eea; color: white; text-decoration: none; border-radius: 6px; font-size: 14px; }
-            .contact-links a:hover { background-color: #5a67d8; }
-            .footer { background-color: #2d3748; color: #a0aec0; padding: 30px; text-align: center; font-size: 14px; }
-            .footer h5 { margin: 0 0 10px 0; color: #e2e8f0; font-size: 16px; }
-            .footer p { margin: 5px 0; }
-            .social-links { margin: 15px 0; }
-            .social-links a { display: inline-block; margin: 0 8px; color: #a0aec0; text-decoration: none; font-size: 18px; }
-            .social-links a:hover { color: #667eea; }
-            .divider { border-top: 1px solid #e2e8f0; margin: 20px 0; }
-          </style>
+          <title>Transmission Received — Subash S</title>
         </head>
-        <body>
-          <div class="container">
-            <!-- Header -->
-            <div class="header">
-              <h1>Thank You for Reaching Out!</h1>
-              <p>I've received your message and appreciate you taking the time to connect.</p>
-            </div>
+        <body style="margin:0;padding:0;background-color:#08080f;font-family:'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:#c8ccd4;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#08080f;">
+            <tr><td align="center" style="padding:40px 16px;">
+              <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background-color:#0f0f18;border:1px solid #1a1a2e;border-radius:16px;overflow:hidden;box-shadow:0 0 60px rgba(0,212,255,0.08);">
 
-            <!-- Content -->
-            <div class="content">
-              <div class="message-summary">
-                <h3>Message Summary</h3>
-                <p><strong>Subject:</strong> ${subject}</p>
-                <p><strong>Received:</strong> ${new Date().toLocaleString('en-US', { 
-                  weekday: 'long', 
-                  year: 'numeric', 
-                  month: 'long', 
-                  day: 'numeric',
-                  hour: '2-digit',
-                  minute: '2-digit'
-                })}</p>
-              </div>
+                <!-- ═══ HEADER ═══ -->
+                <tr>
+                  <td style="background:linear-gradient(135deg,#0d0d1a 0%,#12122a 100%);padding:48px 40px 40px;text-align:center;border-bottom:1px solid #1a1a2e;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 auto 20px;">
+                      <tr>
+                        <td style="width:10px;height:10px;background-color:#00ffa3;border-radius:50%;box-shadow:0 0 12px #00ffa3,0 0 24px rgba(0,255,163,0.4);"></td>
+                        <td style="padding-left:10px;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#00ffa3;font-weight:600;">TRANSMISSION RECEIVED</td>
+                      </tr>
+                    </table>
+                    <h1 style="margin:0;font-size:28px;font-weight:700;color:#ffffff;letter-spacing:-0.5px;">Thank You for Reaching Out</h1>
+                    <p style="margin:12px 0 0;font-size:15px;color:#7a7f8e;line-height:1.5;">Your message has been logged. I'll respond within 24–48 hours.</p>
+                  </td>
+                </tr>
 
-              <div class="message-content">
-                <h4>Your Message</h4>
-                <div class="message-text">${message.replace(/\n/g, '<br>')}</div>
-              </div>
+                <!-- ═══ CONTENT ═══ -->
+                <tr>
+                  <td style="padding:36px 40px;">
 
-              <div class="response-info">
-                <h4>Response Time</h4>
-                <p>I typically respond to all messages within 24-48 hours. For urgent inquiries, feel free to follow up on this email.</p>
-              </div>
+                    <!-- Message Summary Card -->
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#13132a;border:1px solid #1e1e3a;border-radius:12px;margin-bottom:24px;">
+                      <tr>
+                        <td style="padding:24px;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:16px;">
+                            <tr>
+                              <td style="width:4px;background:linear-gradient(180deg,#00d4ff,#0088cc);border-radius:2px;"></td>
+                              <td style="padding-left:14px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#00d4ff;font-weight:600;">MESSAGE LOG</td>
+                            </tr>
+                          </table>
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td style="padding:8px 0;color:#555a6e;font-size:12px;width:90px;vertical-align:top;letter-spacing:1px;">SUBJECT</td>
+                              <td style="padding:8px 0;color:#e0e0e8;font-size:14px;font-weight:500;">${subject}</td>
+                            </tr>
+                            <tr>
+                              <td style="padding:8px 0;color:#555a6e;font-size:12px;vertical-align:top;letter-spacing:1px;">RECEIVED</td>
+                              <td style="padding:8px 0;color:#e0e0e8;font-size:14px;">${new Date().toLocaleString('en-US', {
+                                weekday: 'long',
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric',
+                                hour: '2-digit',
+                                minute: '2-digit'
+                              })}</td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
 
-              <div class="contact-options">
-                <h4>Alternative Ways to Connect</h4>
-                <p>While you wait for my response, you can also reach me through:</p>
-                <div class="contact-links">
-                  <a href="https://www.linkedin.com/in/subash-s-514aa9373" target="_blank">LinkedIn</a>
-                  <a href="https://github.com/Subash-S-66" target="_blank">GitHub</a>
-                  <a href="mailto:${process.env.EMAIL_TO || process.env.NOTIFICATION_EMAIL || 'subash.93450@gmail.com'}">Direct Email</a>
-                </div>
-              </div>
+                    <!-- Your Message Card -->
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#13132a;border:1px solid #1e1e3a;border-radius:12px;margin-bottom:24px;">
+                      <tr>
+                        <td style="padding:24px;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:16px;">
+                            <tr>
+                              <td style="width:4px;background:linear-gradient(180deg,#a855f7,#7c3aed);border-radius:2px;"></td>
+                              <td style="padding-left:14px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#a855f7;font-weight:600;">YOUR MESSAGE</td>
+                            </tr>
+                          </table>
+                          <div style="color:#b0b4c0;font-size:14px;line-height:1.7;white-space:pre-line;border-left:2px solid #2a2a4a;padding-left:16px;">${message.replace(/\n/g, '<br>')}</div>
+                        </td>
+                      </tr>
+                    </table>
 
-              <div class="divider"></div>
+                    <!-- Response ETA Card -->
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:linear-gradient(135deg,#0a1628 0%,#0d1f3c 100%);border:1px solid #1a3a5c;border-radius:12px;margin-bottom:24px;">
+                      <tr>
+                        <td style="padding:24px;text-align:center;">
+                          <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#00d4ff;font-weight:600;margin-bottom:8px;">&#9201; ESTIMATED RESPONSE</div>
+                          <div style="font-size:28px;font-weight:700;color:#ffffff;margin-bottom:4px;">24 – 48 hrs</div>
+                          <div style="font-size:13px;color:#5a7a9e;">For urgent matters, reply directly to this thread.</div>
+                        </td>
+                      </tr>
+                    </table>
 
-              <p style="color: #4a5568; text-align: center; margin: 20px 0;">
-                Looking forward to connecting with you soon!
-              </p>
-            </div>
+                    <!-- Connect Buttons -->
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:12px;">
+                      <tr>
+                        <td style="padding-bottom:12px;">
+                          <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#555a6e;font-weight:600;">CONNECT WITH ME</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <table role="presentation" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td style="padding-right:10px;">
+                                <a href="https://www.linkedin.com/in/subash-s-514aa9373" target="_blank" style="display:inline-block;padding:10px 20px;background:linear-gradient(135deg,#0077b5,#005e93);color:#ffffff;text-decoration:none;border-radius:8px;font-size:13px;font-weight:600;letter-spacing:0.5px;">LinkedIn</a>
+                              </td>
+                              <td style="padding-right:10px;">
+                                <a href="https://github.com/Subash-S-66" target="_blank" style="display:inline-block;padding:10px 20px;background:linear-gradient(135deg,#2a2a3e,#1a1a2e);color:#e0e0e8;text-decoration:none;border-radius:8px;font-size:13px;font-weight:600;letter-spacing:0.5px;border:1px solid #3a3a5e;">GitHub</a>
+                              </td>
+                              <td>
+                                <a href="https://subash.zeabur.app" target="_blank" style="display:inline-block;padding:10px 20px;background:linear-gradient(135deg,#00d4ff,#0088cc);color:#000000;text-decoration:none;border-radius:8px;font-size:13px;font-weight:700;letter-spacing:0.5px;">Portfolio</a>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
 
-            <!-- Footer -->
-            <div class="footer">
-              <h5>Subash S</h5>
-              <p>Full Stack Developer | B.Tech Computer Science Student</p>
-              <p>Dr. M.G.R. Educational and Research Institute, Chennai</p>
-              <div class="social-links">
-                <a href="https://github.com/Subash-S-66" target="_blank">GitHub</a> |
-                <a href="https://www.linkedin.com/in/subash-s-514aa9373" target="_blank">LinkedIn</a> |
-                <a href="mailto:${process.env.EMAIL_TO || process.env.NOTIFICATION_EMAIL || 'subash.93450@gmail.com'}">Email</a>
-              </div>
-              <p style="font-size: 12px; margin-top: 20px; color: #718096;">
-                This is an automated response. Please do not reply to this email directly.
-              </p>
-            </div>
-          </div>
+                  </td>
+                </tr>
+
+                <!-- ═══ FOOTER ═══ -->
+                <tr>
+                  <td style="background-color:#0a0a14;border-top:1px solid #1a1a2e;padding:32px 40px;text-align:center;">
+                    <div style="font-size:18px;font-weight:700;color:#ffffff;letter-spacing:0.5px;">SUBASH S</div>
+                    <div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#00d4ff;margin-top:6px;font-weight:500;">Full-Stack Developer</div>
+                    <div style="width:40px;height:2px;background:linear-gradient(90deg,#00d4ff,#a855f7);margin:16px auto;border-radius:1px;"></div>
+                    <div style="font-size:13px;color:#555a6e;line-height:1.6;">
+                      B.Tech Computer Science &bull; Chennai, India<br>
+                      <a href="mailto:${process.env.EMAIL_TO || process.env.NOTIFICATION_EMAIL || 'subash.93450@gmail.com'}" style="color:#7a7f8e;text-decoration:none;">${process.env.EMAIL_TO || process.env.NOTIFICATION_EMAIL || 'subash.93450@gmail.com'}</a>
+                    </div>
+                    <div style="margin-top:20px;font-size:11px;color:#3a3a5e;">
+                      This is an automated response from the portfolio contact system.
+                    </div>
+                  </td>
+                </tr>
+
+              </table>
+            </td></tr>
+          </table>
         </body>
         </html>
       `
