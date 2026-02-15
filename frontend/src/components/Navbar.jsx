@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { motion, AnimatePresence, useScroll, useTransform, useMotionValueEvent } from 'framer-motion'
-import { navItems, personalInfo } from '../data/personal'
+import { navItems, personalInfo, portfolioLinks } from '../data/personal'
 
 /* ═══════════════════════════════════════════════════════════════
  *  NAVBAR — TACTICAL HUD TABS
@@ -12,8 +12,10 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState('home')
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [portfolioMenuOpen, setPortfolioMenuOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
   const lastScrollY = useRef(0)
+  const portfolioMenuRef = useRef(null)
 
   const { scrollYProgress } = useScroll()
   const progressWidth = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
@@ -43,8 +45,19 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (portfolioMenuRef.current && !portfolioMenuRef.current.contains(event.target)) {
+        setPortfolioMenuOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleOutsideClick)
+    return () => document.removeEventListener('mousedown', handleOutsideClick)
+  }, [])
+
   const scrollTo = useCallback((id) => {
     setMobileOpen(false)
+    setPortfolioMenuOpen(false)
     const el = document.getElementById(id)
     if (el && window.__portfolioLenis) window.__portfolioLenis.scrollTo(el, { offset: -80, duration: 1.6 })
     else if (el) el.scrollIntoView({ behavior: 'smooth' })
@@ -122,6 +135,50 @@ const Navbar = () => {
               )
             })}
 
+            {/* Portfolio switcher */}
+            <div
+              ref={portfolioMenuRef}
+              className="relative ml-3"
+              onMouseEnter={() => setPortfolioMenuOpen(true)}
+              onMouseLeave={() => setPortfolioMenuOpen(false)}
+            >
+              <button
+                onClick={() => setPortfolioMenuOpen(true)}
+                className="px-4 py-1.5 border border-[#00f0ff2d] text-[#00f0ffcc] font-mono text-[12px] tracking-[0.2em] uppercase
+                  hover:bg-[#00f0ff12] hover:border-[#00f0ff55] hover:text-[#00f0ffee] transition-all duration-300"
+                aria-haspopup="menu"
+                aria-expanded={portfolioMenuOpen}
+              >
+                PORTFOLIOS
+              </button>
+
+              <AnimatePresence>
+                {portfolioMenuOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 8 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute right-0 top-[calc(100%+10px)] w-72 border border-[#ff003330] bg-[#050508]/95 backdrop-blur-xl p-2 z-[120]"
+                  >
+                    {portfolioLinks.map((link) => (
+                      <a
+                        key={link.url}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setPortfolioMenuOpen(false)}
+                        className="block px-3 py-2 border border-transparent hover:border-[#ff003325] hover:bg-[#ff00330d] transition-all duration-200"
+                      >
+                        <div className="font-hud text-[11px] tracking-[0.14em] text-white/90 uppercase">{link.label}</div>
+                        <div className="font-mono text-[10px] tracking-[0.08em] text-[#00f0ffa8] uppercase">{link.theme}</div>
+                      </a>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
             {/* Resume link */}
             {personalInfo.resumeUrl && (
               <a href={personalInfo.resumeUrl} target="_blank" rel="noopener noreferrer"
@@ -196,6 +253,35 @@ const Navbar = () => {
                   </motion.button>
                 )
               })}
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.35 }}
+                className="mt-4 w-full max-w-[280px]"
+              >
+                <div className="mb-2 text-center font-mono text-[11px] tracking-[0.32em] text-[#00f0ff80] uppercase">
+                  Portfolio Switch
+                </div>
+                <div className="space-y-2">
+                  {portfolioLinks.map((link, i) => (
+                    <motion.a
+                      key={link.url}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.4 + i * 0.06, duration: 0.3 }}
+                      onClick={() => setMobileOpen(false)}
+                      className="block w-full px-4 py-2 border border-[#00f0ff25] text-center hover:border-[#00f0ff50] hover:bg-[#00f0ff0f] transition-all duration-300"
+                    >
+                      <div className="font-hud text-[11px] tracking-[0.14em] text-white/90 uppercase">{link.label}</div>
+                      <div className="font-mono text-[10px] tracking-[0.08em] text-[#00f0ffa8] uppercase">{link.theme}</div>
+                    </motion.a>
+                  ))}
+                </div>
+              </motion.div>
 
               {personalInfo.resumeUrl && (
                 <motion.a href={personalInfo.resumeUrl} target="_blank" rel="noopener noreferrer"

@@ -58,3 +58,26 @@ export const navItems = [
   { label: 'Skills', href: '#skills' },
   { label: 'Contact', href: '#contact' },
 ]
+
+export const portfolioLinks = [
+  {
+    label: 'Cosmic AI Universe',
+    theme: 'Cosmic-AI-Universe Theme',
+    url: 'http://subash-dev-portfolio.zeabur.app/',
+  },
+  {
+    label: 'Neural Network',
+    theme: 'Neural Network Theme',
+    url: 'http://subash-s-portfolio.zeabur.app/',
+  },
+  {
+    label: 'Game',
+    theme: 'Game Theme',
+    url: 'http://subash--portfolio.zeabur.app/',
+  },
+  {
+    label: 'Regular',
+    theme: 'Regular Theme',
+    url: 'https://subash-portfolio.zeabur.app/',
+  },
+]

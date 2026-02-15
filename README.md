@@ -1,150 +1,141 @@
-# Subash S — Developer Portfolio
+<div align="center">
 
-A gaming-themed, boss-mode HUD portfolio website built as a full-stack monorepo with React, Three.js, and Express.
+[![Live Demo](https://img.shields.io/badge/Live-Demo-ff0033?style=for-the-badge&logo=vercel&logoColor=white)](http://subash--portfolio.zeabur.app)
+[![React](https://img.shields.io/badge/React-18.2-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://react.dev)
+[![Three.js](https://img.shields.io/badge/Three.js-0.160-black?style=for-the-badge&logo=three.js&logoColor=white)](https://threejs.org)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.3-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+[![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org)
 
-> **Live** → [https://subash.zeabur.app](https://subash.zeabur.app)
+<br/>
+
+**Live Demo URL:** http://subash--portfolio.zeabur.app
+
+<br/>
+
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&duration=3000&pause=1000&color=FF0033&center=true&vCenter=true&multiline=true&repeat=true&width=700&height=80&lines=Full-Stack+Developer+%7C+MERN+%2B+AI;Building+immersive+digital+products" alt="Typing SVG" />
+
+</div>
 
 ---
 
-## Screenshots
+## Highlights
 
-| Hero | About | Projects |
-|------|-------|----------|
-| 3D scene with particle effects | Boss-profile stat card | Arcade-style project cards |
+- **Tactical HUD Theme** - Dark metallic background, neon red/cyan accents, and combat UI styling
+- **Cinematic Hero System** - Interactive hero with radar canvas, particle storm, and HUD overlays
+- **Smooth Motion Stack** - Framer Motion + GSAP ScrollTrigger + Lenis smooth scrolling
+- **Custom Cursor + Grain Layer** - Signature interaction and texture effects for immersion
+- **Neural Pathways Background** - Animated network visuals rendered behind sections
+- **Contact Form with Backend API** - Express endpoint with Resend primary and Nodemailer fallback
+- **Portfolio Switcher** - Navbar menu to jump across your theme-specific portfolio deployments
+- **Docker Ready** - Multi-stage Alpine image for production deployment
 
 ---
 
 ## Tech Stack
 
-### Frontend
-| Technology | Purpose |
-|---|---|
-| **React 18** | UI framework |
-| **Vite 5** | Build tooling & dev server |
-| **Tailwind CSS 3** | Utility-first styling |
-| **Framer Motion** | Declarative animations |
-| **GSAP + ScrollTrigger** | Scroll-driven animation sequences |
-| **Three.js** (React Three Fiber + Drei) | 3D hero scene & effects |
-| **Lenis** | Smooth scrolling |
-| **Lucide React** | Icon system |
-
-### Backend
-| Technology | Purpose |
-|---|---|
-| **Express.js 4** | API server |
-| **Resend API** | Primary email delivery |
-| **Nodemailer** | SMTP fallback for contact form |
-| **Helmet** | HTTP security headers |
-| **express-rate-limit** | Rate limiting |
-| **express-validator** | Input validation |
-
-### Infrastructure
-| Tool | Purpose |
-|---|---|
-| **Docker** (multi-stage Alpine) | Containerised production build |
-| **Zeabur** | Current hosting platform |
-| **Render** | Alternative deployment target |
+| Layer | Technologies |
+|-------|-------------|
+| **Frontend** | React 18, Vite 5, Tailwind CSS 3, Framer Motion, GSAP, Lenis |
+| **Visuals** | Three.js, @react-three/fiber, @react-three/drei, Canvas HUD effects |
+| **Backend** | Node.js, Express.js, Resend, Nodemailer, Helmet, express-validator |
+| **Database** | MongoDB, MySQL, PostgreSQL *(across projects)* |
+| **Deployment** | Docker (Alpine), Zeabur, Render |
+| **Version Control** | Git, GitHub |
 
 ---
 
-## Repository Structure
+## Project Structure
 
-```
-├── package.json            # Monorepo root — all dependencies & scripts
-├── Dockerfile              # Multi-stage: build frontend → run backend
-├── render.yaml             # Render deployment config
-│
-├── frontend/
-│   ├── index.html
-│   ├── vite.config.js
-│   ├── tailwind.config.js
-│   ├── postcss.config.js
-│   └── src/
-│       ├── App.jsx
-│       ├── main.jsx
-│       ├── index.css
-│       ├── components/     # Hero, About, Projects, Skills, Contact, Navbar, Footer, etc.
-│       ├── config/         # API base URL config
-│       ├── data/           # personal.js, projects.js, skills.js
-│       └── hooks/          # useMousePosition
-│
-├── backend/
-│   ├── server.js           # Express server — serves built frontend + contact API
-│   ├── email-template.html # HTML email template
-│   └── env.example         # Environment variable reference
-│
-└── Android app/            # APK builds for mobile companion apps
+```text
+frontend/                        # React + Vite frontend
+  src/
+    components/                  # Hero, About, Projects, Skills, Contact, Navbar, Footer
+    data/                        # personal.js, projects.js, skills.js
+    config/                      # API base URL config
+    hooks/                       # useMousePosition.js
+  tailwind.config.js
+  vite.config.js
+backend/
+  server.js                      # Express API + static serving + email handlers
+  email-template.html            # HTML email template
+  env.example                    # Environment variable template
+Android app/                     # APK downloads
+  Expense Tracker.apk
+  Fair Split.apk
+Dockerfile                       # Root multi-stage Docker build
+render.yaml                      # Render deployment config
+package.json                     # Monorepo root scripts + dependencies
 ```
 
 ---
 
-## Getting Started
+## Featured Projects
+
+| # | Project | Description | Stack |
+|---|---------|-------------|-------|
+| 1 | **BOLT & BROOK** | Full-stack e-commerce platform with Razorpay payments | React, Node.js, Express, MySQL, Razorpay |
+| 2 | **SERVIFY** | Real-time freelance bidding platform | MongoDB, Express, React, Node.js |
+| 3 | **EXPENSE TRACKER** | SMS-based finance tracker with chart analytics | React, Flask, Python, Recharts |
+| 4 | **FAIRSHARE** | Debt management with split-bill workflows (Web + Mobile) | React, TypeScript, Node.js, MongoDB, Capacitor |
+| 5 | **ISL TRANSLATOR** | Real-time Indian Sign Language AI translator | React, FastAPI, WebSocket, PyTorch, ONNX |
+
+---
+
+## Quick Start
 
 ### Prerequisites
 
-- **Node.js ≥ 18**
-- **npm** (comes with Node)
+- **Node.js** >= 18.x
+- **npm** >= 9.x
 
-### 1. Clone & Install
+### Installation
 
 ```bash
+# Clone the repository
 git clone https://github.com/Subash-S-66/Subash-Portfolio.git
 cd Subash-Portfolio
+
+# Install dependencies
 npm install
-```
 
-All frontend and backend dependencies are managed from the **root** `package.json`.
-
-### 2. Configure Environment
-
-```bash
-cp backend/env.example backend/.env
-```
-
-Edit `backend/.env` with your values:
-
-| Variable | Required | Description |
-|---|---|---|
-| `PORT` | No | Server port (default `5000`) |
-| `NODE_ENV` | No | `development` or `production` |
-| `CLIENT_URL` | Yes | Frontend origin for CORS |
-| `RESEND_API_KEY` | Yes | API key from [resend.com](https://resend.com) |
-| `NOTIFICATION_EMAIL` | Yes | Where contact submissions are sent |
-| `EMAIL_HOST` | No | SMTP host (fallback) |
-| `EMAIL_PORT` | No | SMTP port (fallback) |
-| `EMAIL_USER` | No | SMTP user (fallback) |
-| `EMAIL_PASSWORD` | No | SMTP password (fallback) |
-| `EMAIL_FROM` | No | SMTP from address (fallback) |
-| `EMAIL_TO` | No | SMTP to address (fallback) |
-
-### 3. Run in Development
-
-```bash
-# Frontend only (Vite dev server)
+# Start frontend
 npm run dev
 
-# Backend only (nodemon)
+# Start backend (new terminal)
 npm run server
 
-# Both concurrently
+# Or run both
 npm run dev:full
 ```
 
-### 4. Production Build
+### Environment Variables
 
-```bash
-npm run build    # Builds frontend → copies dist/ into backend/dist/
-npm start        # Starts Express serving the built frontend + API
+Create a `.env` file in `backend/`:
+
+```env
+PORT=5000
+NODE_ENV=development
+CLIENT_URL=http://localhost:5173
+
+# Optional deployment origins
+ZEABUR_URL=https://subash-portfolio.zeabur.app
+GITHUB_PAGES_URL=https://subash-s-66.github.io
+API_URL=https://subash-portfolio.zeabur.app
+
+# Email (Resend)
+RESEND_API_KEY=your_resend_api_key
+NOTIFICATION_EMAIL=your-email@gmail.com
+
+# Email (Nodemailer fallback)
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASSWORD=your-app-password
+EMAIL_FROM=your-email@gmail.com
+EMAIL_TO=your-email@gmail.com
 ```
 
----
-
-## Docker
-
-The project uses a **multi-stage** Dockerfile (Node 18 Alpine):
-
-1. **Build stage** — installs all deps (including devDependencies), builds the Vite frontend.
-2. **Runtime stage** — installs production deps only, copies the backend + built frontend, runs Express.
+### Docker
 
 ```bash
 # Build image
@@ -154,66 +145,48 @@ docker build -t subash-portfolio .
 docker run -p 5000:5000 --env-file backend/.env subash-portfolio
 ```
 
-Pass the API base URL at build time if needed:
-
-```bash
-docker build --build-arg VITE_API_BASE=https://your-api.example.com -t subash-portfolio .
-```
-
 ---
 
-## Available Scripts
+## Theme
 
-| Script | Description |
-|---|---|
-| `npm run dev` | Start Vite dev server (frontend) |
-| `npm run server` | Start Express with nodemon (backend) |
-| `npm run dev:full` | Run frontend + backend concurrently |
-| `npm run build` | Build frontend & copy to backend/dist |
-| `npm start` | Start production Express server |
-| `npm run preview` | Preview production build locally |
+The portfolio uses a custom **Tactical HUD** visual style:
 
----
-
-## Featured Projects
-
-| # | Project | Stack | Link |
-|---|---------|-------|------|
-| 1 | **Bolt & Brook** — E-Commerce Platform | React, Node, Express, MySQL, Razorpay | [Live](https://stage.boltandbrook.com/) |
-| 2 | **Servify** — Freelance Bidding Platform | MongoDB, Express, React, Node | [Live](https://servify.zeabur.app/) |
-| 3 | **Expense Tracker** — Finance Management | React, Flask, Python, Recharts | [Live](https://subash-s-66.github.io/expense-tracking-system/) |
-| 4 | **FairShare** — Debt Management | React, TypeScript, Node, MongoDB, Capacitor | [Live](https://subash-s-66.github.io/FairSplit/) |
-| 5 | **ISL Translator** — Real-Time Sign Language AI | React, FastAPI, WebSocket, MediaPipe, PyTorch, ONNX | — |
-
----
-
-## About Me
-
-**Subash S** — Full-Stack Developer based in Chennai, India.
-
-B.Tech Computer Science student with 1+ years of hands-on development experience, 5+ completed projects, and a strong focus on the MERN stack and AI/ML.
-
-> *Building immersive digital products with precision engineering.*
+| Element | Color | Hex |
+|---------|-------|-----|
+| Neon Red | Red | `#ff0033` |
+| Neon Cyan | Cyan | `#00f0ff` |
+| Neon Yellow | Yellow | `#ffaa00` |
+| Void Background | Black | `#050508` |
+| HUD Surface | Near Black | `#0a0a0f` |
 
 ---
 
 ## Contact
 
-- **Email**: [subash.93450@gmail.com](mailto:subash.93450@gmail.com)
-- **Phone**: +91-9345081127
-- **LinkedIn**: [Subash S](https://www.linkedin.com/in/subash-s-514aa9373)
-- **GitHub**: [@Subash-S-66](https://github.com/Subash-S-66)
+<div align="center">
+
+| Channel | Details |
+|---------|---------|
+| **Email** | [subash.93450@gmail.com](mailto:subash.93450@gmail.com) |
+| **Phone** | [+91-9345081127](tel:+919345081127) |
+| **LinkedIn** | [Subash S](https://www.linkedin.com/in/subash-s-514aa9373) |
+| **GitHub** | [@Subash-S-66](https://github.com/Subash-S-66) |
+| **Location** | Chennai, India |
+
+</div>
 
 ---
-
-## Repository Policy
-
-This is a **view-only** repository shared for educational and portfolio purposes. Please do not submit pull requests or open issues unless specifically invited.
 
 ## License
 
-MIT — see [package.json](package.json) for details.
+MIT
 
 ---
 
-*Built with ❤️ by Subash S*
+<div align="center">
+
+**Built by [Subash S](https://github.com/Subash-S-66)**
+
+*B.Tech Computer Science - Dr. M.G.R. Educational and Research Institute*
+
+</div>
