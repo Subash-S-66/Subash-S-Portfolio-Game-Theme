@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: subash-portfolio-backend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: cd backend && node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: CLIENT_URL
+        value: https://subash-s-66.github.io/Subash-Portfolio/
+      - key: RESEND_API_KEY
+        value: YOUR_RESEND_API_KEY_HERE
+      - key: NOTIFICATION_EMAIL
+        value: your-email@gmail.com
